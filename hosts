@@ -1,2 +1,2 @@
 [nsupdate]
-dyn.example.com		ansible_ssh_host=102.51.242.239
+pdns.win		ansible_ssh_host=185.197.30.130

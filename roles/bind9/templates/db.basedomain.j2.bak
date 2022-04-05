@@ -3,7 +3,7 @@
 $ORIGIN .
 $TTL    3600
 
-{{ nsupdate.basedomain.name }}        IN      SOA     ns1.{{ nsupdate.basedomain.name }}. {{ nsupdate.service_contact | regex_replace('@', '.') }}. (
+{{ nsupdate.basedomain.name }}        IN      SOA     {{ nsupdate.basedomain.name }}. {{ nsupdate.service_contact | regex_replace('@', '.') }}. (
                                          {{ bind_serial | default(1) }} ; serial
                                       7200 ; refresh
                                       1800 ; retry
@@ -17,8 +17,7 @@ $TTL    3600
 {% endif %}
                     A       {{ ansible_default_ipv4.address }}
                     AAAA    {{ ansible_default_ipv6.address }}
-					MX	10	mx1.nicmus.com.
-					
+
 $ORIGIN {{ nsupdate.basedomain.name }}.
 $TTL    3600
 
@@ -26,4 +25,3 @@ www     IN      A       {{ ansible_default_ipv4.address }}
 www     IN      AAAA    {{ ansible_default_ipv6.address }}
 ipv4    IN      A       {{ ansible_default_ipv4.address }}
 ipv6    IN      AAAA    {{ ansible_default_ipv6.address }}
-_psl	IN		TXT		"https://github.com/publicsuffix/list/pull/1550"

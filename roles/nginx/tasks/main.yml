@@ -19,7 +19,7 @@
 - name: Install nsupdate.info nginx site
   template:
     src: templates/nsupdate.info.j2
-    dest: /etc/nginx/sites-available/nsupdate.info
+    dest: /etc/nginx/sites-available/pdns.win.conf
     mode: 0644
   notify: reload nginx
 
